@@ -5,7 +5,7 @@ const About = () => {
         <div className="flex justify-around flex-wrap py-40 px-20 ">
             <div className="border border-primary_blue w-1/4 p-10">
                 <h2 className="text-xl font-semibold">About</h2>
-                <div className="w-10 h-2 bg-primary_blue"></div>
+                <div className="w-10 h-1 bg-primary_blue  my-2"></div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make
@@ -14,7 +14,7 @@ const About = () => {
             </div>
             <div className="border border-primary_blue w-1/4 p-10">
                 <h2 className="text-xl font-semibold">About</h2>
-                <div className="w-10 h-2 bg-primary_blue"></div>
+                <div className="w-10 h-1 bg-primary_blue  my-2"></div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make
@@ -23,7 +23,7 @@ const About = () => {
             </div>
             <div className="border border-primary_blue w-1/4 p-10">
                 <h2 className="text-xl font-semibold">About</h2>
-                <div className="w-10 h-2 bg-primary_blue"></div>
+                <div className="w-10 h-1 bg-primary_blue my-2"></div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make

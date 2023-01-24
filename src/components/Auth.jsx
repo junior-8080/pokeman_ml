@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Form, Input, Modal } from "antd";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
@@ -7,10 +10,13 @@ const Auth = ({ isOpen, handleCancel }) => {
 
     const [auth, setAuth] = useState('login');
     const [submitting, setSubmit] = useState(false);
+    const navigation = useNavigate();
 
     const handleAuthen = () => {
-
+        navigation("/dashboard");
     }
+
+
 
     return (
         <Modal
@@ -18,6 +24,7 @@ const Auth = ({ isOpen, handleCancel }) => {
             onCancel={handleCancel}
             footer={[]}
             width="30%"
+            destroyOnClose={true}
         >
             <div className="flex justify-center py-5">
                 <div className="bg-white  w-full p-5">
@@ -58,7 +65,7 @@ const Auth = ({ isOpen, handleCancel }) => {
                         <button className="btn btn-secondary btn-lg w-full font-semibold uppercase bg-primary_blue text-primary_yellow py-2 rounded-md" type="submit">{submitting ? "loading" : auth === "login" ? "Register!" : "Login!"}</button>
                     </Form>
                     {
-                        auth === "login" ? <p className="my-2">Don’t have an account?{" "}<span className="primary cursor-pointer" onClick={() => setAuth("register")}>Sign up</span></p> : <p className="mt-2">Already have an account?{" "}<span className="primary cursor-pointer" onClick={() => setAuth("login")}>Login!</span></p>
+                        auth === "login" ? <p className="my-2">Don’t have an account?{" "}<span className="primary cursor-pointer text-primary_dark" onClick={() => setAuth("register")}>Sign up</span></p> : <p className="mt-2">Already have an account?{" "}<span className="primary cursor-pointer text-primary_dark" onClick={() => setAuth("login")}>Login!</span></p>
                     }
                 </div>
             </div>

@@ -19,7 +19,7 @@ const Banner = () => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <button className="text-3xl border-solid border-2 p-4 rounded-md text-primary_yellow font-semibold bg-primary_blue mt-20 hover:bg-primary_yellow hover:text-primary_blue" onClick={() => setAuthModal(true)}>Test  Model</button>
+                <button className="text-3xl border-solid border-2 px-8 py-3  rounded-md text-primary_yellow font-semibold bg-primary_blue mt-20 hover:bg-primary_yellow hover:text-primary_blue" onClick={() => setAuthModal(true)}>Test  Model</button>
             </div>
             <Auth isOpen={isAuthModalOpen} handleCancel={() => setAuthModal(false)} />
         </div>
