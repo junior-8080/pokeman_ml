@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import MLBanner from "../ml2.png";
-import PokemanBanner from "../pk.jpg";
+import PokemanBanner from "../pokeman_banner.jpeg";
 
 import Auth from './Auth';
 
@@ -11,17 +10,16 @@ const Banner = () => {
     const [isAuthModalOpen, setAuthModal] = useState(false);
 
     return (
-        <div className="py-20 w-full bg-slate-200">
-            <div className="flex justify-center border">
-                <div className="flex">
-                    <img src={MLBanner} />
-                    <img src={PokemanBanner} />
+        <div className="bg-[#284053]">
+            <div className="bg-[#284053] flex w-[60%] mr-auto ml-auto py-20 px-10 rounded-xl">
+                <div className="w-[40%] rounded-2xl">
+                    <img src={PokemanBanner} className="rounded-full" />
                 </div>
+                <div>
+                    <p className="text-5xl  px-10  text-center">Who's that Pokemon?<br /> What element types?</p>
+                </div>
+                {/* <Auth isOpen={isAuthModalOpen} handleCancel={() => setAuthModal(false)} /> */}
             </div>
-            <div className="flex justify-center">
-                <button className="text-3xl border-solid border-2 px-8 py-3  rounded-md text-primary_yellow font-semibold bg-primary_blue mt-20 hover:bg-primary_yellow hover:text-primary_blue" onClick={() => setAuthModal(true)}>Test ML Model</button>
-            </div>
-            <Auth isOpen={isAuthModalOpen} handleCancel={() => setAuthModal(false)} />
         </div>
     );
 
