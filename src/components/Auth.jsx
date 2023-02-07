@@ -16,8 +16,6 @@ const Auth = ({ isOpen, handleCancel }) => {
         navigation("/dashboard");
     }
 
-
-
     return (
         <Modal
             open={isOpen}

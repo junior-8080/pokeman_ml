@@ -4,7 +4,7 @@ const Decks = ({ decks, type }) => {
     return (
         <div className="max-w-6xl ml-auto mr-auto text-primary_dark">
             <div>
-                <p className="text-center text-4xl py-20">See Your {type === "ml" ? "ML Model Deck!" : "ML Model Deck!"}</p>
+                <p className="text-center text-4xl py-20">Your {type === "ml" ? "ML Model Deck!" : "ML Pockman Deck!"}</p>
             </div>
             <div className="grid grid-cols-3 gap-10">
                 {

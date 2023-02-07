@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import PokemanBanner from "../pokeman_banner.jpeg";
+// import PokemanBanner from ".../pokeman_banner.jpeg";
+import PokemanBanner from "../../pokeman_banner.jpeg"
 
-import Auth from './Auth';
+import Auth from '../Auth';
 
 
 
 const Banner = () => {
-
-    const [isAuthModalOpen, setAuthModal] = useState(false);
 
     return (
         <div className="bg-[#284053]">
@@ -16,9 +15,8 @@ const Banner = () => {
                     <img src={PokemanBanner} className="rounded-full" />
                 </div>
                 <div>
-                    <p className="text-5xl  px-10  he text-center">Who's that Pokemon?<br /> What element types?</p>
+                    <p className="text-5xl  px-10 text-center">Who's that Pokemon?<br /> What element types?</p>
                 </div>
-                {/* <Auth isOpen={isAuthModalOpen} handleCancel={() => setAuthModal(false)} /> */}
             </div>
         </div>
     );

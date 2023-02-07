@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ElementList from './Homepage/ElementList';
 import Element from "../element2.png";
+import Auth from './Auth';
 
 
 const About = () => {
+    const [isAuthModalOpen,setAuthModal] = useState(false);
     return (
         <div>
             <div className="mb-40 mt-20 flex justify-center">
-                <button className='bg-[#fed2e1] border-4 border-[#284053] py-3 px-8 rounded-sm text-black text-2xl font-semibold'>Start!</button>
+                <button className='bg-[#fed2e1] border-4 border-[#284053] py-3 px-8 rounded-sm text-black text-2xl font-semibold'
+                 onClick={() => setAuthModal(true)}
+                >Start!</button>
             </div>
             <div className="flex items-center mb-40  -ml-6">
                 <ElementList images={[Element, Element, Element, Element, Element, Element]} />
@@ -22,6 +26,7 @@ const About = () => {
                 <p className="text-4xl pl-6">Battle other <br /> ML <br />Enthusiasts</p>
             </div>
             <p className="text-center text-4xl mb-40">ML Master</p>
+            <Auth isOpen={isAuthModalOpen} handleCancel={() => setAuthModal(false)} />
         </div>
     );
 }

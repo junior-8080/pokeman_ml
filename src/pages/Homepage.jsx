@@ -1,9 +1,10 @@
 import React from 'react';
 import About from '../components/About';
-import Banner from '../components/Banner';
-import Welcome from '../components/Banner';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import Banner from '../components/Homepage/Banner';
+import Header from '../components/Homepage/Header';
+
 
 const Homepage = () => {
     return (
