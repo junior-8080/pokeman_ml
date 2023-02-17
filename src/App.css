@@ -2,4 +2,30 @@
   text-align: center;
   height: 100vh;
 }
+.ant-steps {
+  margin-bottom: 30px !important;
+}
+.ant-steps-icon{
+  color: black !important;
+  font-weight: 600 !important;
+}
+.ant-steps-item-icon{
+  background-color: #fed2e1 !important;
+  border-color: black !important;
+  color: black !important;
+}
 
+.ant-steps-item-title {
+  color: black;
+  font-weight: 600 !important;
+}
+.overlay,.ant-modal-wrap {
+  background-color: rgba(47, 47, 47, 0.8);
+}
+
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after {
+  background-color: #fed2e1;
+  height: 10px;
+  border-radius: 20px;
+  /* margin-bottom: 5px; */
+}

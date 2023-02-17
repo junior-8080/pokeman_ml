@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Auth = ({ isOpen, handleCancel }) => {
 
     const [auth, setAuth] = useState('login');
+    // eslint-disable-next-line
     const [submitting, setSubmit] = useState(false);
     const navigation = useNavigate();
 
