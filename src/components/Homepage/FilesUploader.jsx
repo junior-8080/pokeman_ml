@@ -20,7 +20,7 @@ const FilesUploader = ({ type, handleFileUpload, }) => {
     const fileTypes = type === "pokemon" ? ["JPG", "PNG", "GIF"] : ["h5", "hdf5", "pkl", "pt", "pth"];
     const allowedFiles = type === "pokemon" ? "png,jpg" : "h5,hdf5,pkl,pt,pth";
 
-   
+
 
 
 
@@ -62,7 +62,9 @@ const FilesUploader = ({ type, handleFileUpload, }) => {
             <div className="text-center py-20 border-dashed border-4 border-[#fca8c2] cursor-pointer text-lg font-bold">
                 Select File / Drag & Drop
                 <p className="font-thin mt-1 text-sm text-[#687078]">{allowedFiles.replaceAll(",", " ")}</p>
-                {isLoading ? <Progress percent={percent} /> : ""}
+                <div className="w-[80%] mr-auto ml-auto">
+                    {isLoading ? <Progress percent={percent}  /> : ""}
+                </div>
             </div>
         </FileUploader>}
         {isError && <div className="text-center py-20 border-dashed border-4 border-red-700 text-lg font-bold">

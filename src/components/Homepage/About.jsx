@@ -71,6 +71,7 @@ const About = () => {
                 footer={[]}
                 width="50%"
                 // destroyOnClose={true}
+                maskClosable={false}
                 title={<p className="text-center text-2xl py-3">Result Board</p>}
             >
                 {/* <PredictionStep /> */}
