@@ -6,7 +6,7 @@ const Banner = () => {
 
     return (
         <div className="bg-[#284053]">
-            <div className="bg-[#284053] flex justify-center items-center py-10 rounded-xl">
+            <div className="bg-[#284053] flex justify-center items-center py-10  border-2 border-black">
                 <div className="w-[20%] lg:[40%] rounded-2xl">
                     <img src={PokemanBanner} className="rounded-full" alt="banner-logo" />
                 </div>

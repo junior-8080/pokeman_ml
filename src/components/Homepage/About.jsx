@@ -40,20 +40,20 @@ const About = () => {
             </div>
             <div className="flex items-center mb-40  -ml-6">
                 <ElementList images={firstSet} />
-                <p className="text-4xl pl-6">Create Account</p>
+                <p className="text-4xl pl-6">Follow along SE15 LU</p>
             </div>
             <div className="flex justify-between">
                 <div></div>
                 <div className="flex items-center mb-40 -mr-6">
-                    <p className="text-4xl pr-6 ">Upload ML <br /> Models &<br /> Pokemons</p>
+                    <p className="text-4xl pr-6 ">Train your own ML Models</p>
                     <ElementList images={secondSet} />
                 </div>
             </div>
             <div className="flex align-center items-center mb-40 -ml-6">
                 <ElementList images={thirdSet} />
-                <p className="text-4xl pl-6">Battle other <br /> ML <br />Enthusiasts</p>
+                <p className="text-4xl pl-6">Test its performance</p>
             </div>
-            <p className="text-center text-4xl mb-40">ML Master</p>
+            {/* <p className="text-center text-4xl mb-40">ML Master</p> */}
             <Modal
                 open={start}
                 onCancel={() => setStart(false)}

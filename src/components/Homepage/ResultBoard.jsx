@@ -29,7 +29,7 @@ const ResultBoard = ({ prediction }) => {
                 <div className="w-[100px] pt-24">
                     <img src={is_correct_prediction ? Check : Bomb} alt="result-img" />
                 </div>
-                <ElementPredicted title="Actual Prediction" elements={actualElements} />
+                <ElementPredicted title="Grass and Ice" elements={actualElements} />
             </div>
         </div>
     );

@@ -68,7 +68,7 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
             key: "pokemon",
             title: 'Upload Pokemon',
             content: <div>
-                <div>
+                <div className="mb-6">
                     <p className="text-lg font-semibold py-2">Enter Your Pokemon Name:</p>
                     <Input placeholder="Please type in the correct english name of your Pokemon!" value={pokemonName} onChange={(e) => setPokemonName(e.target.value)} />
                     {!pokemonName && <p className="text-[#ec0d57]">Pokemon Name Required</p>}
@@ -127,7 +127,7 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
                             Next Step
                         </button>
                     )}
-                    {(modelFileData && pokemonFileData) && (
+                    {(modelFileData && pokemonFileData && pokemonName && mlLirary) && (
                         <button className="bg-[#fed2e1] font-semibold py-2 px-4 text-lg ml-10 rounded-md" onClick={predict} disabled={(!modelFileData || !pokemonFileData || predicting)}>
                             {predicting ? "Please wait..." : "Predict"}
                         </button>
