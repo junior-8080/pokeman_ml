@@ -1,13 +1,13 @@
+import { Progress } from "antd";
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import { verifyFile } from "../../api";
-import { Progress } from "antd";
-import InvalidFile from "../../images/file-error.png"
+import InvalidFile from "../../images/file-error.png";
 
 
 
 
-const FilesUploader = ({ type, handleFileUpload }) => {
+const FilesUploader = ({ type, handleFileUpload, }) => {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [isError, setError] = useState(false);
@@ -16,8 +16,13 @@ const FilesUploader = ({ type, handleFileUpload }) => {
 
 
 
-    const fileTypes = type === "pokeman" ? ["JPG", "PNG", "GIF"] : ["h5", "hdf5", "pkl", "pt", "pth"];
-    const allowedFiles = type === "pokeman" ? "png,jpg" : "h5,hdf5,pkl,pt,pth"
+
+    const fileTypes = type === "pokemon" ? ["JPG", "PNG", "GIF"] : ["h5", "hdf5", "pkl", "pt", "pth"];
+    const allowedFiles = type === "pokemon" ? "png,jpg" : "h5,hdf5,pkl,pt,pth";
+
+   
+
+
 
 
     const handleChange = (files) => {
@@ -35,14 +40,13 @@ const FilesUploader = ({ type, handleFileUpload }) => {
             setPercent(50);
             const result = await verifyFile(files, type);
             const isValid = result.is_verified_image || result.is_verified_model_file;
-            if (!isValid) {
-                throw new Error("invalid file")
-            } else {
+            if (isValid) {
                 setLoading(false);
                 setPercent(100);
                 setSelectedFile(files);
                 handleFileUpload(type, files);
-
+            } else {
+                throw new Error("invalid file")
             }
 
         } catch (error) {

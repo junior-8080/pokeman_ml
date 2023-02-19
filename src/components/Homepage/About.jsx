@@ -16,8 +16,9 @@ const About = () => {
     const handlePrediction = async (data) => {
         try {
             setLoading(true);
-            const result = await predictMl(data.modelFileData, data.pokemanFileData);
-            const pokeman_url = URL.createObjectURL(data.pokemanFileData);
+            message.info("This might take awhile,kindly wait...")
+            const result = await predictMl(data);
+            const pokeman_url = URL.createObjectURL(data.pokemonFileData);
             result.pokemon_url = pokeman_url;
             setLoading(false);
             setBoardModal(true);
@@ -25,6 +26,7 @@ const About = () => {
             setStart(false);
 
         } catch (error) {
+            setLoading(false)
             message.info('Something went wrong,kindly contact nino.lindenberg@code.berlin')
         }
 
