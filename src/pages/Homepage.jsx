@@ -7,7 +7,7 @@ import Header from '../components/Homepage/Header';
 
 const Homepage = () => {
     return (
-        <div className="text-[#fed2e1] bg-black max-w-7xl mr-auto ml-auto">
+        <div className="text-[#fed2e1] bg-black w-[80%] mr-auto ml-auto">
             <Header />
             <Banner />
             <About />

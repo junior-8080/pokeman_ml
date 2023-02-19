@@ -33,35 +33,51 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
     }
 
     const steps = [
+        // {
+        //     key: "model",
+        //     title: 'Prediction Meta Data',
+        //     content: <div>
+        //         <div className="mb-6">
+        //             <p className="text-lg font-semibold py-2">Select Your Model Library</p>
+        //             <Radio.Group options={options} onChange={(e) => setMlLibrary(e.target.value)} value={mlLirary} />
+        //             {!mlLirary && <p className="text-[#ec0d57]">Model Library Required</p>}
+        //         </div>
+        //         <div>
+        //             <p className="text-lg font-semibold py-2">Enter Your Pokemon Name:</p>
+        //             <Input placeholder="Please type in the correct english name of your Pokemon!" value={pokemonName} onChange={(e) => setPokemonName(e.target.value)} />
+        //             {!pokemonName && <p className="text-[#ec0d57]">Pokemon Name Required</p>}
+
+        //         </div>
+        //     </div>
+        // },
         {
             key: "model",
-            title: 'Prediction Meta Data',
+            title: 'Upload Model',
             content: <div>
                 <div className="mb-6">
                     <p className="text-lg font-semibold py-2">Select Your Model Library</p>
                     <Radio.Group options={options} onChange={(e) => setMlLibrary(e.target.value)} value={mlLirary} />
                     {!mlLirary && <p className="text-[#ec0d57]">Model Library Required</p>}
                 </div>
+                {!modelFileData ? <FilesUploader type="model" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
+                    handleMlLibrary={(value) => setMlLibrary(value)} mlLirary={mlLirary} />
+                    : <FileDisplay handleDelete={() => setModelFileData(null)} />}
+            </div>,
+        },
+        {
+            key: "pokemon",
+            title: 'Upload Pokemon',
+            content: <div>
                 <div>
                     <p className="text-lg font-semibold py-2">Enter Your Pokemon Name:</p>
                     <Input placeholder="Please type in the correct english name of your Pokemon!" value={pokemonName} onChange={(e) => setPokemonName(e.target.value)} />
                     {!pokemonName && <p className="text-[#ec0d57]">Pokemon Name Required</p>}
 
                 </div>
+                {!pokemonFileData ? <FilesUploader type="pokemon" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
+                    handlePokemon={(value) => setPokemonName(value)} pokemonName={pokemonName} /> : <FileDisplay type="pokemon" handleDelete={() => setpokemonFileData(null)} />}
             </div>
-        },
-        {
-            key: "model",
-            title: 'Upload Model',
-            content: !modelFileData ? <FilesUploader type="model" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
-                handleMlLibrary={(value) => setMlLibrary(value)} mlLirary={mlLirary} />
-                : <FileDisplay handleDelete={() => setModelFileData(null)} />,
-        },
-        {
-            key: "pokemon",
-            title: 'Upload Pokemon',
-            content: (pokemonFileData && pokemonName) ? <FileDisplay type="pokemon" handleDelete={() => setpokemonFileData(null)} /> : <FilesUploader type="pokemon" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
-                handlePokemon={(value) => setPokemonName(value)} pokemonName={pokemonName} />
+            ,
 
         }
     ];
@@ -106,7 +122,7 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
                             Previous Step
                         </button>
                     )}
-                    {(current < steps.length - 1 && (pokemonName && mlLirary)) && (
+                    {(current < steps.length - 1 ) && (
                         <button className="bg-[#fed2e1] font-semibold py-2 px-4 text-lg rounded-md" onClick={() => next()}>
                             Next Step
                         </button>

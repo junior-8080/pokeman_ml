@@ -58,7 +58,8 @@ const About = () => {
                 open={start}
                 onCancel={() => setStart(false)}
                 footer={[]}
-                width="50%"
+                // className="md:w-[90%] w-[90%]"
+                // width={"90%"}
                 destroyOnClose={true}
                 title={<p className="text-center text-2xl py-3">Steps To Test Your ML!</p>}
             >

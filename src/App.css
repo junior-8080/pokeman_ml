@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .ant-steps {
   margin-bottom: 30px !important;
@@ -29,4 +29,27 @@
   height: 10px;
   border-radius: 20px;
   /* margin-bottom: 5px; */
+}
+.ant-modal {
+  width: 90% !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ant-modal {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .ant-modal {
+    width: 90% !important;
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .ant-modal {
+    width: 60% !important;
+  }
 }

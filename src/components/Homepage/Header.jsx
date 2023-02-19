@@ -6,7 +6,7 @@ import Logo from "../../images/element-images/dark.png";
 
 const Header = () => {
     return (
-        <div className="flex justify-between py-2">
+        <div className="flex justify-between py-4">
             <Link to="/">
                 <div className="pl-5">
                     <img src={Logo} width="80px" className="rounded-full" alt="logo" />
