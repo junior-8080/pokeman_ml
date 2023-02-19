@@ -1,7 +1,6 @@
 import React from 'react';
 import About from '../components/Homepage/About';
 import Footer from '../components/Footer';
-// import Header from '../components/Header';
 import Banner from '../components/Homepage/Banner';
 import Header from '../components/Homepage/Header';
 

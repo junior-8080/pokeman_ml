@@ -17,8 +17,26 @@ import Water from "../../images/element-images/water.png";
 import Flying from "../../images/element-images/flying.png";
 
 
+export const firstSet = [Bug, Dark, Dragon, Electric, Fairy, Fighting];
+export const secondSet = [Fire, Ghost, Grass, Ice, Normal, Poison];
+export const thirdSet = [Rock, Psychic, Steel, Water, Flying, Fire];
 
-
-export const firstSet = [Bug,Dark,Dragon,Electric,Fairy,Fighting];
-export const secondSet = [Fire,Ghost,Grass,Ice,Normal,Poison];
-export const thirdSet = [Rock,Psychic,Steel,Water,Flying,Fire];
+export const elementsCollections = {
+  bug: Bug,
+  dark: Dark,
+  dragon: Dragon,
+  electric: Electric,
+  fighting: Fighting,
+  ghost: Ghost,
+  fairy: Fairy,
+  fire: Fire,
+  grass: Grass,
+  ice: Ice,
+  normal: Normal,
+  rock: Rock,
+  psychic: Psychic,
+  poison: Poison,
+  water: Water,
+  steel: Steel,
+  flying: Flying,
+};

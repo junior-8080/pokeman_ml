@@ -1,12 +1,34 @@
+import { message, Modal } from 'antd';
 import React, { useState } from 'react';
+import { predictMl } from '../../api';
 import ElementList from './ElementList';
 import { firstSet, secondSet, thirdSet } from './elements';
 import PredictionStep from './PredictionStep';
-import { Modal } from 'antd';
+import ResultBoard from './ResultBoard';
 
 
 const About = () => {
     const [start, setStart] = useState(false);
+    const [boardModal, setBoardModal] = useState(false);
+    const [prediction, setPrediction] = useState({});
+    const [loading, setLoading] = useState(false);
+
+    const handlePrediction = async (data) => {
+        try {
+            setLoading(true);
+            const result = await predictMl(data.modelFileData, data.pokemanFileData);
+            const pokeman_url = URL.createObjectURL(data.pokemanFileData);
+            result.pokemon_url = pokeman_url;
+            setLoading(false);
+            setBoardModal(true);
+            setPrediction(result);
+            setStart(false);
+
+        } catch (error) {
+            message.info('Something went wrong,kindly contact nino.lindenberg@code.berlin')
+        }
+
+    }
     return (
         <div className="w-full">
             <div className="mb-40 mt-20 flex justify-center">
@@ -38,8 +60,20 @@ const About = () => {
                 destroyOnClose={true}
                 title={<p className="text-center text-2xl py-3">Steps To Test Your ML!</p>}
             >
-                <PredictionStep />
+                <PredictionStep handlePrediction={handlePrediction} predicting={loading} />
             </Modal>
+            <Modal
+                open={boardModal}
+                onCancel={() => setBoardModal(false)}
+                footer={[]}
+                width="50%"
+                // destroyOnClose={true}
+                title={<p className="text-center text-2xl py-3">Result Board</p>}
+            >
+                {/* <PredictionStep /> */}
+                <ResultBoard prediction={prediction} />
+            </Modal>
+
         </div>
     );
 }

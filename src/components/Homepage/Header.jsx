@@ -12,7 +12,7 @@ const Header = () => {
                     <img src={Logo} width="80px" className="rounded-full" alt="logo" />
                 </div>
             </Link>
-            <p className="font-bold text-4xl flex items-center">Gotta Guess'em All!</p>
+            <p className="font-bold text-4xl flex items-center">SE15 ML - Pokemon Mini Project</p>
             <div></div>
         </div>
     );

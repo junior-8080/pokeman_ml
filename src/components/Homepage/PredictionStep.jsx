@@ -1,16 +1,16 @@
-import { message, Steps } from 'antd';
+import { Steps } from 'antd';
 import React, { useState } from 'react';
 import FileDisplay from './FileDisplay';
 import FilesUploader from './FilesUploader';
 
 
 
-const PredictionStep = () => {
+
+const PredictionStep = ({ handlePrediction, predicting }) => {
 
     const [current, setCurrent] = useState(0);
     const [modelFileData, setModelFileData] = useState(null);
     const [pokemanFileData, setPokemanFileData] = useState(null);
-    console.log("🚀 ~ file: PredictionStep.jsx:13 ~ PredictionStep ~ pokemanFileData", pokemanFileData)
 
     const handleFileUpload = (type, fileData) => {
         if (type === "model") {
@@ -19,20 +19,22 @@ const PredictionStep = () => {
         if (type === "pokeman") {
             setPokemanFileData(fileData)
         }
+
     }
+
 
     const steps = [
         {
             key: "model",
             title: 'Upload Model',
             content: !modelFileData ? <FilesUploader type="model" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)} />
-                : <FileDisplay />,
+                : <FileDisplay handleDelete={() => setModelFileData(null)} />,
         },
         {
             key: "pokeman",
             title: 'Upload Pokeman',
             content: !pokemanFileData ? <FilesUploader type="pokeman" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)} />
-                : <FileDisplay type="pokeman" />,
+                : <FileDisplay type="pokeman" handleDelete={() => setPokemanFileData(null)} />,
         }
     ];
 
@@ -48,6 +50,16 @@ const PredictionStep = () => {
         title: item.title,
     }));
 
+    const predict = () => {
+
+        const data = {
+            modelFileData,
+            pokemanFileData
+        }
+        handlePrediction(data);
+
+    }
+
     return (
         <div className="px-10">
             <Steps current={current} items={items} />
@@ -57,7 +69,7 @@ const PredictionStep = () => {
                 className="mt-20"
             >
                 <div className="flex justify-center">
-                    {current < steps.length - 1 && (
+                    {(current < steps.length - 1 && modelFileData) && (
                         <button className="bg-[#fed2e1] font-semibold py-4 px-4 text-xl rounded-md" onClick={() => next()}>
                             Next Step
                         </button>
@@ -71,8 +83,8 @@ const PredictionStep = () => {
                         </button>
                     )}
                     {(modelFileData && pokemanFileData) && (
-                        <button className="bg-[#fed2e1] font-semibold py-4 px-4 text-xl ml-10 rounded-md" onClick={() => message.success('Processing complete!')} disabled={(!modelFileData || !pokemanFileData)}>
-                            Proceed To Test
+                        <button className="bg-[#fed2e1] font-semibold py-4 px-4 text-xl ml-10 rounded-md" onClick={predict} disabled={(!modelFileData || !pokemanFileData)}>
+                            {predicting ? "Processing..." : "Predict"}
                         </button>
                     )}
                 </div>
