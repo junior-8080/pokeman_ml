@@ -22,14 +22,17 @@ export const verifyFile = async (image, type) => {
 };
 
 export const predictMl = async (data) => {
-  const { modelFileData, pokemonFileData, pokemonName, mlLirary } = data;
-  const url = baseUrl + "/inference/prediction-result";
+  const { modelFileData, pokemonFileData, pokemonName, mlLirary,threshold,nnType } = data;
+  const url = baseUrl + "/inference/predict-element-types";
 
   const formData = new FormData();
   formData.append("ml_model_file", modelFileData);
   formData.append("pokemon_image_file", pokemonFileData);
   formData.append("ml_library", mlLirary);
   formData.append("pokemon_name", pokemonName);
+  formData.append("nnType", nnType);
+  formData.append("threshold", threshold);
+  
 
   try {
     const { data } = await axios.post(url, formData, options);

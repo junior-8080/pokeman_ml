@@ -8,26 +8,27 @@ import None from "../../images/none.png";
 const ResultBoard = ({ prediction }) => {
 
     const {
-        predicted_element_type_1,
-        predicted_element_type_2,
-        correct_element_type_1,
-        correct_element_type_2,
-        // pokemon_name,
-        pokemon_url,
-        is_correct_prediction
+        predictedElementType1,
+        predictedElementType2,
+        actualElementType1,
+        actualElementType2,
+        pokemonName,
+        pokemonUrl,
+        isPredictionCorrect
     } = prediction
-    const actualElements = [correct_element_type_1, correct_element_type_2];
-    const predictElements = [predicted_element_type_1, predicted_element_type_2];
+    const actualElements = [actualElementType1, actualElementType1];
+    const predictElements = [predictedElementType1, predictedElementType2];
 
     return (
         <div>
             <div className="flex justify-center">
-                <img src={pokemon_url} alt="predicted-element"  width={"250px"}/>
+                <p>{pokemonName}</p>
+                <img src={pokemonUrl} alt="predicted-element"  width={"250px"}/>
             </div>
             <div className="flex justify-between items-start py-10">
                 <ElementPredicted title="Your Model Prediction" elements={predictElements} />
                 <div className="w-[100px] pt-24">
-                    <img src={is_correct_prediction ? Check : Bomb} alt="result-img" />
+                    <img src={isPredictionCorrect ? Check : Bomb} alt="result-img" />
                 </div>
                 <ElementPredicted title="Actual Element Types" elements={actualElements} />
             </div>

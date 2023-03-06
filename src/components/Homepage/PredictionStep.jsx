@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FileDisplay from './FileDisplay';
 import FilesUploader from './FilesUploader';
-import { Steps, Input, Radio } from 'antd';
+import { Steps, Input, Radio, InputNumber } from 'antd';
 
 
 const options = [
@@ -9,6 +9,12 @@ const options = [
     { label: 'Scikit-Learn', value: 'scikit-learn' },
     { label: 'PyTorch', value: 'pytorch' },
 ];
+
+const cnnTypes = [
+    { label: 'CNN', value: 'CNN' },
+    { label: 'ANN', value: 'ANN' },
+];
+
 
 
 
@@ -19,6 +25,8 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
     const [pokemonFileData, setpokemonFileData] = useState(null);
     const [mlLirary, setMlLibrary] = useState("");
     const [pokemonName, setPokemonName] = useState("");
+    const [nnType,setNNType] = useState("");
+    const [threshold, setThreshold] = useState("")
 
 
 
@@ -58,6 +66,16 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
                     <p className="text-lg font-semibold py-2">Select Your Model Library</p>
                     <Radio.Group options={options} onChange={(e) => setMlLibrary(e.target.value)} value={mlLirary} />
                     {!mlLirary && <p className="text-[#ec0d57]">Model Library Required</p>}
+                </div>
+                <div className="mb-6">
+                    <p className="text-lg font-semibold py-2">Select NN Type</p>
+                    <Radio.Group options={cnnTypes} onChange={(e) => setNNType(e.target.value)} value={nnType} />
+                    {!nnType && <p className="text-[#ec0d57]">Model Library Required</p>}
+                </div>
+                <div className="mb-6">
+                    <p className="text-lg font-semibold py-2">Model Threshold</p>
+                    <InputNumber placeholder="Please prediction threshold" value={threshold} onChange={(e) => setThreshold(e.target.value)} />
+                    {!threshold && <p className="text-[#ec0d57]">Model Library Required</p>}
                 </div>
                 {!modelFileData ? <FilesUploader type="model" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
                     handleMlLibrary={(value) => setMlLibrary(value)} mlLirary={mlLirary} />
@@ -100,7 +118,9 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
             modelFileData,
             pokemonFileData,
             pokemonName,
-            mlLirary
+            mlLirary,
+            nnType,
+            threshold,
         }
         handlePrediction(data);
     }

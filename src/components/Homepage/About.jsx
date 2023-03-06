@@ -19,7 +19,7 @@ const About = () => {
             message.info("This might take awhile,kindly wait...")
             const result = await predictMl(data);
             const pokeman_url = URL.createObjectURL(data.pokemonFileData);
-            result.pokemon_url = pokeman_url;
+            result.pokemonUrl = pokeman_url;
             setLoading(false);
             setBoardModal(true);
             setPrediction(result);
