@@ -16,7 +16,7 @@ const ResultBoard = ({ prediction }) => {
         pokemonUrl,
         isPredictionCorrect
     } = prediction
-    const actualElements = [actualElementType1, actualElementType1];
+    const actualElements = [actualElementType1, actualElementType2];
     const predictElements = [predictedElementType1, predictedElementType2];
 
     return (

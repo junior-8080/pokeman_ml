@@ -25,7 +25,7 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
     const [pokemonFileData, setpokemonFileData] = useState(null);
     const [mlLirary, setMlLibrary] = useState("");
     const [pokemonName, setPokemonName] = useState("");
-    const [nnType,setNNType] = useState("");
+    const [nnType, setNNType] = useState("");
     const [threshold, setThreshold] = useState("")
 
 
@@ -41,23 +41,6 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
     }
 
     const steps = [
-        // {
-        //     key: "model",
-        //     title: 'Prediction Meta Data',
-        //     content: <div>
-        //         <div className="mb-6">
-        //             <p className="text-lg font-semibold py-2">Select Your Model Library</p>
-        //             <Radio.Group options={options} onChange={(e) => setMlLibrary(e.target.value)} value={mlLirary} />
-        //             {!mlLirary && <p className="text-[#ec0d57]">Model Library Required</p>}
-        //         </div>
-        //         <div>
-        //             <p className="text-lg font-semibold py-2">Enter Your Pokemon Name:</p>
-        //             <Input placeholder="Please type in the correct english name of your Pokemon!" value={pokemonName} onChange={(e) => setPokemonName(e.target.value)} />
-        //             {!pokemonName && <p className="text-[#ec0d57]">Pokemon Name Required</p>}
-
-        //         </div>
-        //     </div>
-        // },
         {
             key: "model",
             title: 'Upload Model',
@@ -70,12 +53,12 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
                 <div className="mb-6">
                     <p className="text-lg font-semibold py-2">Select NN Type</p>
                     <Radio.Group options={cnnTypes} onChange={(e) => setNNType(e.target.value)} value={nnType} />
-                    {!nnType && <p className="text-[#ec0d57]">Model Library Required</p>}
+                    {!nnType && <p className="text-[#ec0d57]">Model NN Type is Required</p>}
                 </div>
                 <div className="mb-6">
                     <p className="text-lg font-semibold py-2">Model Threshold</p>
-                    <InputNumber placeholder="Please prediction threshold" value={threshold} onChange={(e) => setThreshold(e.target.value)} />
-                    {!threshold && <p className="text-[#ec0d57]">Model Library Required</p>}
+                    <InputNumber placeholder="Please prediction threshold" value={threshold} onChange={(value) => setThreshold(value)} />
+                    {!threshold && <p className="text-[#ec0d57]">Threshold Library Required</p>}
                 </div>
                 {!modelFileData ? <FilesUploader type="model" handleFileUpload={(type, fileData) => handleFileUpload(type, fileData)}
                     handleMlLibrary={(value) => setMlLibrary(value)} mlLirary={mlLirary} />
@@ -142,12 +125,12 @@ const PredictionStep = ({ handlePrediction, predicting }) => {
                             Previous Step
                         </button>
                     )}
-                    {(current < steps.length - 1 ) && (
+                    {(current < steps.length - 1) && (
                         <button className="bg-[#fed2e1] font-semibold py-2 px-4 text-lg rounded-md" onClick={() => next()}>
                             Next Step
                         </button>
                     )}
-                    {(modelFileData && pokemonFileData && pokemonName && mlLirary) && (
+                    {(modelFileData && pokemonFileData && pokemonName && mlLirary && nnType && threshold) && (
                         <button className="bg-[#fed2e1] font-semibold py-2 px-4 text-lg ml-10 rounded-md" onClick={predict} disabled={(!modelFileData || !pokemonFileData || predicting)}>
                             {predicting ? "Please wait..." : "Predict"}
                         </button>

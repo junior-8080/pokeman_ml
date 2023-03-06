@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_API_URL || "https://my.api.mockaroo.com";
+const baseUrl = process.env.REACT_APP_API_URL;
 
 const options = {
   headers: {
@@ -30,9 +30,9 @@ export const predictMl = async (data) => {
   formData.append("pokemon_image_file", pokemonFileData);
   formData.append("ml_library", mlLirary);
   formData.append("pokemon_name", pokemonName);
-  formData.append("nnType", nnType);
-  formData.append("threshold", threshold);
-  
+  formData.append("nn_type", nnType);
+  formData.append("prediction_threshold", threshold);
+
 
   try {
     const { data } = await axios.post(url, formData, options);
